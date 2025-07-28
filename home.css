@@ -251,19 +251,71 @@ body {
     text-decoration: none;
 }
 
-h1 {
-    position: fixed;
-    top: 40%;
-    left: auto;
-    font-family: "Qufina";
-    letter-spacing: 10px;
-    font-size: clamp(3rem, 10vw, 10rem);
-    color: white;
-    mix-blend-mode: difference;
-    padding: 0rem clamp(1rem, 2vw, 3rem);
-    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+.scroll-row {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  overflow-x: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 2rem;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+  mix-blend-mode: difference;
 }
 
-h1:hover {
-    color: black;
+.scroll-row::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.scroll-row h1 {
+  font-family: "Qufina";
+  letter-spacing: 7px;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-style: italic;
+  color: rgb(179, 255, 158);
+  mix-blend-mode: difference;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.scroll-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.scroll-row {
+  display: inline-flex;
+  gap: 3rem;
+  animation: scroll-left 25s linear infinite;
+}
+
+.scroll-row h1 {
+  font-family: "Qufina";
+  letter-spacing: 7px;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-style: italic;
+  color: rgb(179, 255, 158);
+  mix-blend-mode: difference;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
