@@ -17,33 +17,77 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 1500);
 });
 
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const greetings = [
+    'Hello',
+    'Bonjour', 
+    'Nǐ hǎo',
+    'Namaste', 
+    'Marhaban',
+    'Konnichiwa',
+    'Annyeonghaseyo',
+    'Olá'
+];
 
-document.querySelectorAll(".scroll-row h1").forEach(h1 => {
-  h1.addEventListener("mouseover", event => {
-    let iteration = 0;
+let currentIndex = 0;
+const wordElement = document.getElementById('current-hello');
 
-    if (h1._glitchInterval) {
-      clearInterval(h1._glitchInterval);
+function changeWord() {
+    wordElement.classList.remove('entering');
+    wordElement.classList.add('exiting');
+    
+    setTimeout(() => {
+        currentIndex = (currentIndex + 1) % greetings.length;
+        wordElement.textContent = greetings[currentIndex];
+        wordElement.classList.remove('exiting');
+        wordElement.classList.add('entering');
+    }, 90);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        wordElement.classList.add('entering');
+        
+        setTimeout(() => {
+            setInterval(changeWord, 3000);
+        }, 2000);
+    }, 2500);
+});
+
+function handleParallax() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.15;
+    const videoRate = scrolled * -0.2;
+    
+    const helloLoop = document.querySelector('.hello-loop');
+    const video = document.querySelector('.herosection video');
+    const credit = document.getElementById('credit');
+    
+    if (helloLoop) {
+        helloLoop.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
+    }
+    
+    if (video) {
+        video.style.transform = `translateY(${videoRate}px)`;
     }
 
-    h1._glitchInterval = setInterval(() => {
-      h1.innerText = h1.dataset.value
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return h1.dataset.value[index];
-          }
-          return letters[Math.floor(Math.random() * 26)];
-        })
-        .join("");
+    if (credit) {
+        credit.style.transform = `translateY(${rate}px)`;
+    }
+}
 
-      if (iteration >= h1.dataset.value.length) {
-        clearInterval(h1._glitchInterval);
-        h1._glitchInterval = null;
-      }
+let ticking = false;
 
-      iteration += 1 / 8;
-    }, 30);
-  });
-});
+function updateParallax() {
+    handleParallax();
+    ticking = false;
+}
+
+function requestTick() {
+    if (!ticking) {
+        requestAnimationFrame(updateParallax);
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', requestTick);
+window.addEventListener('load', handleParallax);
