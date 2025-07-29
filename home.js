@@ -18,26 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let interval = null;
 
 document.querySelectorAll(".scroll-row h1").forEach(h1 => {
   h1.addEventListener("mouseover", event => {
     let iteration = 0;
-    clearInterval(interval);
 
-    interval = setInterval(() => {
-      event.target.innerText = event.target.dataset.value
+    if (h1._glitchInterval) {
+      clearInterval(h1._glitchInterval);
+    }
+
+    h1._glitchInterval = setInterval(() => {
+      h1.innerText = h1.dataset.value
         .split("")
         .map((letter, index) => {
           if (index < iteration) {
-            return event.target.dataset.value[index];
+            return h1.dataset.value[index];
           }
           return letters[Math.floor(Math.random() * 26)];
         })
         .join("");
 
-      if (iteration >= event.target.dataset.value.length) {
-        clearInterval(interval);
+      if (iteration >= h1.dataset.value.length) {
+        clearInterval(h1._glitchInterval);
+        h1._glitchInterval = null;
       }
 
       iteration += 1 / 8;

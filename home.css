@@ -124,10 +124,8 @@ body {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.2s;
-    /* Start after hero */
 }
 
-/* Individual stagger for nav items */
 #items span {
     opacity: 0;
     transform: translateY(20px);
@@ -251,71 +249,44 @@ body {
     text-decoration: none;
 }
 
-.scroll-row {
-  display: flex;
-  gap: 3rem;
-  white-space: nowrap;
-  overflow-x: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1rem 2rem;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE */
-  mix-blend-mode: difference;
-}
-
-.scroll-row::-webkit-scrollbar {
-  display: none; /* Chrome */
-}
-
-.scroll-row h1 {
-  font-family: "Qufina";
-  letter-spacing: 7px;
-  font-size: clamp(2rem, 6vw, 5rem);
-  font-style: italic;
-  color: rgb(179, 255, 158);
-  mix-blend-mode: difference;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
 .scroll-container {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  z-index: 2;
+    mix-blend-mode: difference;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 2;
+    pointer-events: none;
 }
 
 .scroll-row {
-  display: inline-flex;
-  gap: 3rem;
-  animation: scroll-left 25s linear infinite;
+    display: inline-flex;
+    gap: 3rem;
+    white-space: nowrap;
+    animation: scroll-left 30s linear infinite;
 }
 
 .scroll-row h1 {
-  font-family: "Qufina";
-  letter-spacing: 7px;
-  font-size: clamp(2rem, 6vw, 5rem);
-  font-style: italic;
-  color: rgb(179, 255, 158);
-  mix-blend-mode: difference;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  flex-shrink: 0;
+    pointer-events: auto;
+    font-family: "Qufina";
+    font-style: italic;
+    font-size: clamp(2rem, 6vw, 5rem);
+    color: rgb(179, 255, 158);
+    letter-spacing: 7px;
+    mix-blend-mode: difference;
+    flex-shrink: 0;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 @keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
