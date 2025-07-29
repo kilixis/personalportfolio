@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         setTimeout(() => {
             setInterval(changeWord, 3000);
-        }, 2000);
-    }, 2500);
+        }, 1500);
+    }, 3000);
 });
 
 function handleParallax() {
