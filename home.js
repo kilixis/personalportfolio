@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
         const dotsContainer = document.querySelector(".container");
         dotsContainer.classList.add("fade-out");
-        
+
         setTimeout(function () {
             const loading = document.querySelector(".loading");
             loading.classList.add("fade-out");
-            
+
             setTimeout(function () {
                 const hero = document.querySelector("#hero");
                 const items = document.querySelector("#items");
@@ -19,9 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const greetings = [
     'Hello',
-    'Bonjour', 
+    'Bonjour',
     'Nǐ hǎo',
-    'Namaste', 
+    'Namaste',
     'Marhaban',
     'Konnichiwa',
     'Annyeonghaseyo',
@@ -34,7 +34,7 @@ const wordElement = document.getElementById('current-hello');
 function changeWord() {
     wordElement.classList.remove('entering');
     wordElement.classList.add('exiting');
-    
+
     setTimeout(() => {
         currentIndex = (currentIndex + 1) % greetings.length;
         wordElement.textContent = greetings[currentIndex];
@@ -46,7 +46,7 @@ function changeWord() {
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         wordElement.classList.add('entering');
-        
+
         setTimeout(() => {
             setInterval(changeWord, 3000);
         }, 1500);
@@ -57,15 +57,15 @@ function handleParallax() {
     const scrolled = window.pageYOffset;
     const rate = scrolled * -0.15;
     const videoRate = scrolled * -0.2;
-    
+
     const helloLoop = document.querySelector('.hello-loop');
     const video = document.querySelector('.herosection video');
     const credit = document.getElementById('credit');
-    
+
     if (helloLoop) {
         helloLoop.style.transform = `translate(-50%, calc(-50% + ${rate}px))`;
     }
-    
+
     if (video) {
         video.style.transform = `translateY(${videoRate}px)`;
     }
@@ -91,3 +91,14 @@ function requestTick() {
 
 window.addEventListener('scroll', requestTick);
 window.addEventListener('load', handleParallax);
+
+window.addEventListener('scroll', () => {
+    const titles = document.querySelectorAll('.scrolla');
+    titles.forEach(title => {
+        const titlePosition = title.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight;
+        const scrollPercentage = (screenPosition - titlePosition) / screenPosition;
+        const letterSpacing = scrollPercentage * 1000;
+        title.style.letterSpacing = `${letterSpacing}px`;
+    });
+});
