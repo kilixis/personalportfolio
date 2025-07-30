@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaurya | About</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+    <div class="loading">
+        <div class="container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <svg width="0" height="0" class="svg">
+            <defs>
+                <filter id="uib-jelly-ooze">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                        result="ooze" />
+                    <feBlend in="SourceGraphic" in2="ooze" />
+                </filter>
+            </defs>
+        </svg>
+    </div>
+    <div class="nav">
+        <div id="hero"><a href="home.html">
+                <p>Shaurya.</p>
+            </a></div>
+        <div id="items">
+            <span><a href="home.html">home</a></span>
+            <span><a href="about.html">about</a></span>
+            <span><a href="work.html">work</a></span>
+        </div>
+    </div>
+
+
+    <section class="herosection">
+        <div class = "hero-head">
+            <h1>I Am A</h1>
+            <div class="hello-loop">
+            <div class="hello-word" id="current-hello">programmer</div>
+        </div>
+        </div>
+    </section>
+
+
+    <script src="about.js"></script>
+</body>
+
+</html>
