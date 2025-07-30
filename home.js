@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
             setInterval(changeWord, 3000);
-        }, 1500);
+        }, 90);
     }, 3000);
 });
 
