@@ -68,9 +68,9 @@ body {
 
 .nav {
     border: 1px solid #111;
-    padding: 2px;
+    padding: 8px;
     color: #111;
-    margin: 20px;
+    margin: 10px;
     width: auto;
     height: 50px;
     position: fixed;
@@ -295,7 +295,7 @@ body {
     letter-spacing: 3px;
     white-space: nowrap;
     opacity: 0;
-    transform: translate3d(0px, 150px, 0px);
+    transform: translate3d(0px, 80px, 0px);
     will-change: transform, opacity;
 }
 
@@ -310,7 +310,7 @@ body {
 @keyframes slideInUp {
     0% {
         opacity: 0;
-        transform: translate3d(0px, 150px, 0px);
+        transform: translate3d(0px, 80px, 0px);
     }
 
     100% {
@@ -327,6 +327,6 @@ body {
 
     100% {
         opacity: 0;
-        transform: translate3d(0px, -150px, 0px);
+        transform: translate3d(0px, -80px, 0px);
     }
 }
