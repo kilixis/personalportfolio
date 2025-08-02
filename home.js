@@ -102,3 +102,5 @@ window.addEventListener('scroll', () => {
         title.style.letterSpacing = `${letterSpacing}px`;
     });
 });
+
+// Yes i need to study butsmake it grean as well
