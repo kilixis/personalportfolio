@@ -53,4 +53,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     }, 3000);
 });
-//nah i need to fix ts
