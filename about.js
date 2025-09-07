@@ -53,4 +53,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     }, 3000);
 });
-// hi hello
