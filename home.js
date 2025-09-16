@@ -102,4 +102,3 @@ window.addEventListener('scroll', () => {
         title.style.letterSpacing = `${letterSpacing}px`;
     });
 });
-//waahaaa
